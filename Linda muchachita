@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Linda Muchachita</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3em;
+      padding: 20px 40px;
+      border: 4px solid #ff4ecf;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #ff4ecf;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    .floating-text {
+      position: absolute;
+      font-size: 1em;
+      color: #ff9ee9;
+      opacity: 0.8;
+      animation: floatText 15s linear infinite;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.2em;
+      color: red;
+      opacity: 0.7;
+      animation: floatHeart 12s linear infinite;
+    }
+
+    @keyframes floatText {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="center-text">LINDA MUCHACHITA</div>
+
+  <script>
+    const phrases = [
+      "Diosa terrenal", "Me fascinas", "Eres especial", "Sonrisa perfecta",
+      "Eres lo mejor", "Mi inspiración", "Belleza pura", "Labios de miel", 
+      "Eres única", "La más bella", "Mi razón", "Mi reina", "Eres tú", 
+      "Bonita por dentro y fuera"
+    ];
+
+    const emojis = ["❤️", "💖", "💘", "💕", "💗", "🌟", "😍"];
+
+    for (let i = 0; i < 50; i++) {
+      const span = document.createElement("span");
+      span.className = "floating-text";
+      span.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.top = Math.random() * 100 + "vh";
+      span.style.animationDelay = Math.random() * 20 + "s";
+      document.body.appendChild(span);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.animationDelay = Math.random() * 15 + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
